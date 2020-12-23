@@ -1,7 +1,8 @@
-#R-Grid Code
+# R-Grid Code
 
 The repository is split into two files: frontend and backend
 
+## .env file
 Backend requires .env file for variables, here is an example:
 
 ```
@@ -15,7 +16,9 @@ USER_LOGIN_SECRET='loginsecret'
 EMAIL_USER="email@gmail.com"
 EMAIL_PASS="password"
 ```
-This saves credentials for db connecion, email and login.
+This saves credentials for db connecion, email and login. Save as `.env` in backend folder.
+
+## Begin servers
 
 Begin backend server:
 ```
@@ -30,6 +33,7 @@ cd frontend
 npm install 
 npm start
 ```
+## Access frontend
 
 Frontend server runs on port 4200. So in browser type:
 
