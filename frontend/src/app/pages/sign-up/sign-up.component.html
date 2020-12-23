@@ -1,0 +1,58 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="form-signin">
+    
+    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input 
+    formControlName="email"
+    type="email" 
+    id="inputEmail" 
+    class="form-control" 
+    placeholder="Email address" 
+    autofocus="">
+    <div *ngIf="signUpForm.get('email').hasError('required') && signUpForm.get('email').touched" class="help-block">This field is required.</div>
+    <div *ngIf="signUpForm.get('email').hasError('email') && signUpForm.get('email').touched" class="help-block">Please enter a valid email address.</div>
+    
+    <label for="firstName" class="sr-only">First Name</label>
+    <input 
+    formControlName="firstName" 
+    type="text" 
+    id="firstName" 
+    class="form-control name" 
+    placeholder="First Name" 
+    autofocus="">
+    <div *ngIf="signUpForm.get('firstName').hasError('required') && signUpForm.get('firstName').touched" class="help-block">This field is required.</div>
+
+    <label for="lastName" class="sr-only">Last Name</label>
+    <input 
+    formControlName="lastName" 
+    type="text" 
+    id="lastName" 
+    class="form-control name" 
+    placeholder="Last Name" 
+    autofocus="">
+    <div *ngIf="signUpForm.get('lastName').hasError('required') && signUpForm.get('lastName').touched" class="help-block">This field is required.</div>
+
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input 
+    formControlName="password" 
+    type="password" 
+    id="inputPassword" 
+    class="form-control" 
+    placeholder="Password" 
+    >
+    <div *ngIf="signUpForm.get('password').hasError('required') && signUpForm.get('password').touched" class="help-block">This field is required.</div>
+    <div *ngIf="signUpForm.get('password').hasError('minLength') && signUpForm.get('password').touched"class="help-block">The minimum length for passwords is 6 characters.</div>
+
+    <label for="confirmPassword" class="sr-only">Confim Password</label>
+    <input 
+    formControlName="confirmPassword"
+    type="password" 
+    id="confirmPassword" 
+    class="form-control" 
+    placeholder="Confirm Password" 
+    >
+    <div *ngIf="signUpForm.hasError('passMismatch') && signUpForm.get('confirmPassword').touched" class="help-block">The passwords do not match.</div>
+
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="signUpForm.invalid">Sign Up</button>
+</form>

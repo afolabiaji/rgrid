@@ -1,0 +1,28 @@
+<form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <h1 class="h3 mb-3 font-weight-normal">Please log in</h1>
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input 
+    formControlName="email"
+    type="email" 
+    id="inputEmail" 
+    class="form-control" 
+    placeholder="Email address" 
+    required="" autofocus=""
+    >
+    <div *ngIf="loginForm.get('email').hasError('required') && loginForm.get('email').touched" class="help-block">This field is required.</div>
+    <div *ngIf="loginForm.get('email').hasError('email') && loginForm.get('email').touched" class="help-block">Please enter a valid email address.</div>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input 
+    formControlName="password"
+    type="password" 
+    id="inputPassword" 
+    class="form-control" 
+    placeholder="Password" 
+    required=""
+    >
+    <div *ngIf="loginForm.get('password').hasError('required') && loginForm.get('password').touched" class="help-block">This field is required.</div>
+    <div *ngIf="loginForm.get('password').hasError('minLength') && loginForm.get('password').touched"class="help-block">The minimum length for passwords is 6 characters.</div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="loginForm.invalid">Log In</button>
+
+</form>
