@@ -33,6 +33,7 @@ export class NavbarComponent implements OnInit {
   loggedIn;
 
   ngOnInit(): void {
+    //check if user is logged in
     if (localStorage.getItem('user')) {
       this.reqBody = JSON.parse(localStorage.getItem('user'))
       this._api.postVerificationStatus(this.reqBody).subscribe(
@@ -49,6 +50,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logout() {
+    //remove user from local storage
     localStorage.removeItem('user')
     this.loggedIn = false
     this._router.navigate(['log-in'])

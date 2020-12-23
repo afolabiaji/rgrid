@@ -33,6 +33,7 @@ export class DashboardComponent implements OnInit{
   uploadObservable;
 
   ngOnInit(): void {
+    //get user file from database if it exists
     this.reqBody.user = JSON.parse(localStorage.getItem('user'));
     this.downloadObservable = this._api.postDownloadFile(this.reqBody, this.httpOptions).subscribe(
       res => {
@@ -45,6 +46,7 @@ export class DashboardComponent implements OnInit{
 
   }
 
+  //upload file and convert to utf-8 
   uploadFile(elemId) {
     var reader = new FileReader()
     var el = <HTMLInputElement>document.getElementById(elemId);
@@ -83,6 +85,7 @@ export class DashboardComponent implements OnInit{
     }
   }
 
+  //send file data to server
   submitFile() {
     this.uploadObservable = this._api.postUploadFile(this.reqBody, this.httpOptions).subscribe(res => {
       this.fileFound = true;
@@ -92,6 +95,7 @@ export class DashboardComponent implements OnInit{
       })
   }
 
+  //export file and save on client
   exportFile() {
     this.downloadObservable = this._api.postDownloadFile(this.reqBody, this.httpOptions).subscribe(
       res => {
@@ -105,6 +109,7 @@ export class DashboardComponent implements OnInit{
       })
   }
 
+  //download raw utf-8 data from server
   downloadBlob() {
     // Create a link element
     const link = document.createElement("a");
