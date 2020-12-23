@@ -1,4 +1,4 @@
-##R-Grid Code
+#R-Grid Code
 
 The repository is split into two files: frontend and backend
 
@@ -30,3 +30,11 @@ cd frontend
 npm install 
 npm start
 ```
+
+Frontend server runs on port 4200. So in browser type:
+
+```
+localhost:4200
+```
+
+to access frontend.
